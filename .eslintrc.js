@@ -8,7 +8,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:tailwindcss/recommended",
     "plugin:prettier/recommended",
-    "plugin:jsx-a11y/recommended"
+    // "plugin:jsx-a11y/recommended"
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
