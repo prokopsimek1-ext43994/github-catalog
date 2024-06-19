@@ -92,11 +92,7 @@ export default async function Home({
 
                 const topics = repo.repo.repositoryTopics?.nodes?.map((topic) => {
                   return (
-                    <Link
-                      href={`https://github.com/search?q=org:${org}+topic:${topic!.topic.name}&type=repositories`}
-                      key={topic!.topic.name}
-                      target='_blank'
-                    >
+                    <Link href={`/?query=topic:${topic!.topic.name}`} key={topic!.topic.name}>
                       <Badge color='indigo' key={topic!.topic.name}>
                         {topic!.topic.name}
                       </Badge>
@@ -109,7 +105,7 @@ export default async function Home({
                   <Table.Row key={repo.repo.name}>
                     <Table.Cell>
                       <Flex>
-                        <Link href={repo.repo.url} target='_blank'>
+                        <Link href={`/r/${repo.repo.name}`}>
                           <Heading size='5'>{repo.repo.name}</Heading>
                         </Link>
                       </Flex>
