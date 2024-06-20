@@ -27,6 +27,7 @@ import {
 } from '@/components/ui/table';
 import SwaggerUI from 'swagger-ui-react';
 import 'swagger-ui-react/swagger-ui.css';
+import TopicBadge from '@/components/TopicBadge';
 
 const getData = async (slug: string) => {
   const org = process.env.GITHUB_ORG || 'DXHeroes';
@@ -40,13 +41,7 @@ export default async function RepositoryDetail({ params }: { params: { slug: str
   console.log(data);
 
   const topics = data.repositoryTopics?.nodes?.map((topic) => {
-    return (
-      <Link href={`/?query=topic:${topic!.topic.name}`} key={topic!.topic.name}>
-        <Badge color='indigo' key={topic!.topic.name}>
-          {topic!.topic.name}
-        </Badge>
-      </Link>
-    );
+    return <TopicBadge key={topic?.topic!.id} name={topic?.topic!.name || ''} />;
   });
 
   return (

@@ -7,10 +7,6 @@ const listOrgReposQuery = (
   labels: string[] | undefined = ["commons"],
   languages: string[] | undefined
 ) => {
-  console.log('org:', org);
-  console.log('fullTextQuery:', fullTextQuery);
-  console.log('labels:', labels);
-  console.log('languages:', languages);
   return `{
   search(first:${repoCount}, query: """
     org:${org} ${fullTextQuery || ''}

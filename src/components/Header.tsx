@@ -12,12 +12,12 @@ import {
 import { ThemeDropDownMenu } from './ThemeDropdown';
 import { Home } from 'lucide-react';
 import ListItem from './ui/list-item';
-import { Button, buttonVariants } from './ui/button';
+import { buttonVariants } from './ui/button';
 
 const hrefs = [
-  [ "/?h", "All" ],
+  ['/?h', 'All'],
   ['/?query=topic:feature-toggles', 'Feature Toggles'],
-  ['/?query=topic:samples', 'Samples'],
+  ['/?query=topic:sample', 'Samples'],
   // {
   //   label: 'All',
   //   items: [
@@ -86,8 +86,11 @@ export const Header = () => {
               {hrefs.map((item) => {
                 if (Array.isArray(item)) {
                   return (
-                    <NavigationMenuItem key={item[0]} className={buttonVariants({ variant: "link" })}>
-                      <Link href={item[0]} >
+                    <NavigationMenuItem
+                      key={item[0]}
+                      className={buttonVariants({ variant: 'link' })}
+                    >
+                      <Link href={item[0]}>
                         <NavigationMenuLink>{item[1]}</NavigationMenuLink>
                       </Link>
                     </NavigationMenuItem>
