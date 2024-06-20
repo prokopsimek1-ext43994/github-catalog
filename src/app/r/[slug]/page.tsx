@@ -179,7 +179,7 @@ export default async function RepositoryDetail({ params }: { params: { slug: str
                                 </div>
                               </Flex>
                             </TableCell>
-                            <TableCell>
+                            <TableCell suppressHydrationWarning>
                               {formatDistance(new Date(), commit?.committedDate, {
                                 addSuffix: true,
                               })}
@@ -208,7 +208,10 @@ export default async function RepositoryDetail({ params }: { params: { slug: str
                         </Avatar>
                         <div className='grid gap-1'>
                           <p className='text-sm font-medium leading-none'>{collaborator?.name}</p>
-                          <p className='text-xs text-muted-foreground'>@{collaborator?.login}</p>
+                          {/* <p className='text-xs text-muted-foreground'>@{collaborator?.login}</p> */}
+                          <p className='text-xs text-muted-foreground'>
+                            {`${(collaborator?.name || collaborator?.login)?.toLowerCase().split(' ').join('.')}@ext.csas.cz`}
+                          </p>
                         </div>
                       </div>
                     );

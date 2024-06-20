@@ -3,10 +3,14 @@ const repoCount = 100;
 // set the query parameters only if are set and not empty
 const listOrgReposQuery = (
   org: string,
-  fullTextQuery: string,
-  labels: string[] | undefined,
+  fullTextQuery: string | undefined,
+  labels: string[] | undefined = ["commons"],
   languages: string[] | undefined
 ) => {
+  console.log('org:', org);
+  console.log('fullTextQuery:', fullTextQuery);
+  console.log('labels:', labels);
+  console.log('languages:', languages);
   return `{
   search(first:${repoCount}, query: """
     org:${org} ${fullTextQuery || ''}
